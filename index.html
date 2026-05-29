@@ -1025,10 +1025,10 @@
             if (document.getElementById('lo4_q8_4').value === 'Credit') lo4_q8_pts++;
             marks += lo4_q8_pts;
             if (lo4_q8_pts === 4) {
-                document.getElementById('lo4_q9_box').classList.add('card-correct');
+                document.getElementById('lo4_q8_box').classList.add('card-correct');
                 document.getElementById('lo4_q8_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo4_q8_fb').className = "feedback-hint correct-text";
             } else {
-                document.getElementById('lo4_q9_box').classList.add('card-incorrect');
+                document.getElementById('lo4_q8_box').classList.add('card-incorrect');
                 document.getElementById('lo4_q8_fb').innerHTML = "✗ Incorrect initial trial balance sides order: Credit, Debit, Debit, Credit";
             }
 

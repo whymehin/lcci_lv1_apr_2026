@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IAB LCCI Level 1 Bookkeeping Self-Practice Portal - April 2026</title>
+    <style>
+        :root {
+            --primary-navy: #0f172a;
+            --accent-blue: #1d4ed8;
+            --neutral-dark: #1e293b;
+            --neutral-light: #f8fafc;
+            --border-black: #000000;
+            --success-green: #15a34a;
+            --error-red: #dc2626;
+            --bg-slate: #f1f5f9;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--neutral-dark);
+            background-color: var(--bg-slate);
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+
+        header {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-blue);
+        }
+
+        header h1 { margin: 0; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        header p { margin: 0.4rem 0 0 0; font-size: 0.95rem; opacity: 0.9; }
+
+        .container {
+            max-width: 950px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .dashboard {
+            display: none;
+            background: white;
+            border: 2px solid var(--accent-blue);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        .grade-display { font-size: 2.6rem; font-weight: bold; margin: 0.5rem 0; }
+        .theme-pass { color: var(--success-green); }
+        .theme-fail { color: var(--error-red); }
+
+        .lo-card-block {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .lo-header {
+            color: var(--primary-navy);
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 0.4rem;
+            font-size: 1.2rem;
+        }
+
+        .exam-question-box {
+            border: 1px solid #94a3b8;
+            background-color: var(--neutral-light);
+            border-radius: 4px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .box-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #475569;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px dashed #cbd5e1;
+            padding-bottom: 0.25rem;
+        }
+
+        .question-stem { font-size: 0.95rem; margin-bottom: 0.75rem; }
+
+        .accounting-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            background: white;
+            font-size: 0.9rem;
+        }
+
+        .accounting-table th, .accounting-table td {
+            border: 1px solid var(--border-black);
+            padding: 6px 10px;
+            vertical-align: middle;
+        }
+
+        .accounting-table th { background-color: #e2e8f0; font-weight: bold; text-align: center; }
+        .num-col { text-align: right; width: 16%; }
+
+        .mcq-container { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
+        .mcq-row {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 0.65rem 0.85rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+        .mcq-row:hover { background-color: #eff6ff; border-color: var(--accent-blue); }
+
+        .input-box {
+            padding: 0.4rem 0.6rem;
+            font-size: 0.95rem;
+            border: 1px solid #64748b;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 240px;
+            box-sizing: border-box;
+        }
+
+        .embedded-select {
+            width: 100%;
+            padding: 0.35rem;
+            font-size: 0.85rem;
+            border: 1px solid #475569;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        .card-correct { border-left: 6px solid var(--success-green) !important; }
+        .card-incorrect { border-left: 6px solid var(--error-red) !important; }
+        
+        .feedback-hint { margin-top: 0.6rem; font-size: 0.85rem; font-weight: bold; color: var(--error-red); }
+        .feedback-hint.correct-text { color: var(--success-green); }
+
+        .btn-container { text-align: center; margin: 3rem 0; }
+        .submit-btn {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 0.9rem 3.5rem;
+            font-size: 1.15rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: background-color 0.2s;
+        }
+        .submit-btn:hover { background-color: #1d4ed8; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>IAB LCCI Level 1 Certificate in Bookkeeping</h1>
+        <p>April 2026 Series (Total Marks: 126)</p>
+    </header>
+
+    <div class="container">
+
+        <div id="dashboard" class="dashboard">
+            <h2>Official Examination Result Notification</h2>
+            <div id="grade-badge" class="grade-display">FAIL</div>
+            <h3 id="marks-display" style="margin: 0.25rem 0;">0 / 126 Marks</h3>
+            <p id="percent-display" style="margin: 0;">Percentage: 0%</p>
+        </div>
+
+        <form id="examination-form">
+
+            <div class="lo-card-block">
+                <h2 class="lo-header">Learning Outcome 1: Books of Original Entry and Ledger Accounts</h2>
+
+                <div class="exam-question-box" id="lo1_q1_box">
+                    <div class="box-header"><span>Question 1</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following identifies one of the purposes of a statement of account?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo1_q1" value="A"> To provide a summary of the transactions for a period of time and show the outstanding balance on an account</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q1" value="B"> To inform a supplier that a customer has returned goods which were purchased using a credit account</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q1" value="C"> Sent by a customer to a supplier to provide details of the invoices and credit notes being cleared by a payment made on their account</label>
+                    </div>
+                    <div class="feedback-hint" id="lo1_q1_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q2_box">
+                    <div class="box-header"><span>Question 2</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following transactions would be classed as capital expenditure?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo1_q2" value="A"> Purchase of delivery vehicle</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q2" value="B"> Insurance for company vehicles</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q2" value="C"> Maintenance of machinery</label>
+                    </div>
+                    <div class="feedback-hint" id="lo1_q2_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q3_box">
+                    <div class="box-header"><span>Question 3</span><span>1 Mark</span></div>
+                    <div class="question-stem">A company's petty cash book is operated using the imprest system. The imprest amount is $150. At the end of a week, the petty cash remaining was made up as follows:</div>
+                    <table class="accounting-table" style="max-width: 320px;">
+                        <thead>
+                            <tr><th>Denomination</th><th>Quantity</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>$20</td><td>1</td></tr>
+                            <tr><td>$10</td><td>2</td></tr>
+                            <tr><td>$5</td><td>3</td></tr>
+                            <tr><td>$1</td><td>5</td></tr>
+                            <tr><td>50c</td><td>6</td></tr>
+                            <tr><td>20c</td><td>4</td></tr>
+                            <tr><td>10c</td><td>5</td></tr>
+                            <tr><td>5c</td><td>8</td></tr>
+                            <tr><td>1c</td><td>2</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="question-stem">Assuming there were no errors or discrepancies, which one of the following identifies the amount of payments that will be recorded in the petty cash book for this period?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo1_q3" value="A"> $85.28</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q3" value="B"> $64.72</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q3" value="C"> $150.00</label>
+                    </div>
+                    <div class="feedback-hint" id="lo1_q3_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q4_box">
+                    <div class="box-header"><span>Question 4</span><span>1 Mark</span></div>
+                    <div class="question-stem">You are preparing a sales invoice for a credit customer. The customer has ordered 280 units of product TY1 which has a list price of $4 per unit. The customer has the following discounts available:<br>• 10% trade discount<br>• 3% prompt payment discount for early settlement of the invoice within 14 days of invoice date<br><br>Assuming the customer meets the requirements for all discounts available, which one of the following identifies the amount of the prompt payment discount the customer will be entitled to?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo1_q4" value="A"> $30.24</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q4" value="B"> $112.00</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q4" value="C"> $142.24</label>
+                    </div>
+                    <div class="feedback-hint" id="lo1_q4_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q5_box">
+                    <div class="box-header"><span>Question 5</span><span>2 Marks</span></div>
+                    <div class="question-stem">The following general ledger extract for an expense account has been provided for the month of October.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Details</th>
+                                <th>Amount $</th>
+                                <th>Date</th>
+                                <th>Details</th>
+                                <th>Amount $</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1 Oct</td>
+                                <td>Balance b/d</td>
+                                <td class="num-col">3466</td>
+                                <td>18 Oct</td>
+                                <td>Bank (refund)</td>
+                                <td class="num-col">189</td>
+                            </tr>
+                            <tr>
+                                <td>25 Oct</td>
+                                <td>Bank</td>
+                                <td class="num-col">1120</td>
+                                <td></td>
+                                <td></td>
+                                <td class="num-col"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="question-stem">What would be the balance carried down on the account as at 31 October?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo1_q5" value="A"> Credit $4397</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q5" value="B"> Credit $4586</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q5" value="C"> Debit $4397</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q5" value="D"> Debit $4586</label>
+                    </div>
+                    <div class="feedback-hint" id="lo1_q5_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q6_box">
+                    <div class="box-header"><span>Question 6</span><span>2 Marks</span></div>
+                    <div class="question-stem">Which one of the following accounts may have an opening balance which can be on the debit or credit side of the account?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo1_q6" value="A"> Bank</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q6" value="B"> Cash</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q6" value="C"> Sales</label>
+                        <label class="mcq-row"><input type="radio" name="lo1_q6" value="D"> Purchases</label>
+                    </div>
+                    <div class="feedback-hint" id="lo1_q6_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q7_box">
+                    <div class="box-header"><span>Question 7</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Classify each of the following items as an asset or a liability using the drop-down options provided below.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Item</th><th>Asset or liability</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Prepayment (relating to expenses)</td><td><select id="lo1_q7_1" class="embedded-select"><option value="">-- Choose --</option><option value="Asset">Asset</option><option value="Liability">Liability</option></select></td></tr>
+                            <tr><td>Inventory at the year end</td><td><select id="lo1_q7_2" class="embedded-select"><option value="">-- Choose --</option><option value="Asset">Asset</option><option value="Liability">Liability</option></select></td></tr>
+                            <tr><td>Accrual (relating to expenses)</td><td><select id="lo1_q7_3" class="embedded-select"><option value="">-- Choose --</option><option value="Asset">Asset</option><option value="Liability">Liability</option></select></td></tr>
+                            <tr><td>Bank loan</td><td><select id="lo1_q7_4" class="embedded-select"><option value="">-- Choose --</option><option value="Asset">Asset</option><option value="Liability">Liability</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo1_q7_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q8_box">
+                    <div class="box-header"><span>Question 8</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Identify the most appropriate method of payment used in each of the four scenarios below using the drop-down options provided in each answer box. Each payment method should only be used once and in the most appropriate scenario.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Scenario</th><th>Method of payment</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A payment is sent through the post to a credit supplier</td><td><select id="lo1_q8_1" class="embedded-select"><option value="">-- Select --</option><option value="BACS-bank transfer">BACS-bank transfer</option><option value="Cheque">Cheque</option><option value="Credit card">Credit card</option><option value="Direct debit">Direct debit</option></select></td></tr>
+                            <tr><td>A non-cash payment is made in person to fill a company vehicle with fuel</td><td><select id="lo1_q8_2" class="embedded-select"><option value="">-- Select --</option><option value="BACS-bank transfer">BACS-bank transfer</option><option value="Cheque">Cheque</option><option value="Credit card">Credit card</option><option value="Direct debit">Direct debit</option></select></td></tr>
+                            <tr><td>An electronic payment is made to pay the wages of the employees who are weekly paid</td><td><select id="lo1_q8_3" class="embedded-select"><option value="">-- Select --</option><option value="BACS-bank transfer">BACS-bank transfer</option><option value="Cheque">Cheque</option><option value="Credit card">Credit card</option><option value="Direct debit">Direct debit</option></select></td></tr>
+                            <tr><td>The monthly light and heat expense is automatically paid electronically to the utility company based on the amount owing each month</td><td><select id="lo1_q8_4" class="embedded-select"><option value="">-- Select --</option><option value="BACS-bank transfer">BACS-bank transfer</option><option value="Cheque">Cheque</option><option value="Credit card">Credit card</option><option value="Direct debit">Direct debit</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo1_q8_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q9_box">
+                    <div class="box-header"><span>Question 9</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">The following four transactions containing errors have been identified. Use the drop-down options provided to identify the type of error made.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Transactions</th><th>Type of error</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sales returns (returns inwards) have been understated by $220 and discounts allowed have been overstated by $220.</td><td><select id="lo1_q9_1" class="embedded-select"><option value="">-- Choose Category --</option><option value="Reversal of entries">Reversal of entries</option><option value="Original entry">Original entry</option><option value="Error of commission">Error of commission</option><option value="Compensating">Compensating</option></select></td></tr>
+                            <tr><td>A bank receipt for interest received was recorded as a debit in the interest received account and credited to the bank.</td><td><select id="lo1_q9_2" class="embedded-select"><option value="">-- Choose Category --</option><option value="Reversal of entries">Reversal of entries</option><option value="Original entry">Original entry</option><option value="Error of commission">Error of commission</option><option value="Compensating">Compensating</option></select></td></tr>
+                            <tr><td>A payment of $650 for advertising costs has been recorded as $560 in the accounting records.</td><td><select id="lo1_q9_3" class="embedded-select"><option value="">-- Choose Category --</option><option value="Reversal of entries">Reversal of entries</option><option value="Original entry">Original entry</option><option value="Error of commission">Error of commission</option><option value="Compensating">Compensating</option></select></td></tr>
+                            <tr><td>A payment to a credit supplier, J Clark Ltd, has been recorded in Clarke Ltd in error. The payment was for $2530.</td><td><select id="lo1_q9_4" class="embedded-select"><option value="">-- Choose Category --</option><option value="Reversal of entries">Reversal of entries</option><option value="Original entry">Original entry</option><option value="Error of commission">Error of commission</option><option value="Compensating">Compensating</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo1_q9_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q10_box">
+                    <div class="box-header"><span>Question 10</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Classify each of the following transactions as either capital income, revenue income, capital expenditure or revenue expenditure by using the drop-down options provided below.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Transaction</th><th>Classification</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Purchase of office furniture for use in the company boardroom</td><td><select id="lo1_q10_1" class="embedded-select"><option value="">-- Choose --</option><option value="Capital income">Capital income</option><option value="Revenue income">Revenue income</option><option value="Capital expenditure">Capital expenditure</option><option value="Revenue expenditure">Revenue expenditure</option></select></td></tr>
+                            <tr><td>Sales commission received</td><td><select id="lo1_q10_2" class="embedded-select"><option value="">-- Choose --</option><option value="Capital income">Capital income</option><option value="Revenue income">Revenue income</option><option value="Capital expenditure">Capital expenditure</option><option value="Revenue expenditure">Revenue expenditure</option></select></td></tr>
+                            <tr><td>Repairs made to company delivery vehicle</td><td><select id="lo1_q10_3" class="embedded-select"><option value="">-- Choose --</option><option value="Capital income">Capital income</option><option value="Revenue income">Revenue income</option><option value="Capital expenditure">Capital expenditure</option><option value="Revenue expenditure">Revenue expenditure</option></select></td></tr>
+                            <tr><td>The receipt of a bank loan</td><td><select id="lo1_q10_4" class="embedded-select"><option value="">-- Choose --</option><option value="Capital income">Capital income</option><option value="Revenue income">Revenue income</option><option value="Capital expenditure">Capital expenditure</option><option value="Revenue expenditure">Revenue expenditure</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo1_q10_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q11_box">
+                    <div class="box-header"><span>Question 11</span><span>4 Marks</span></div>
+                    <div class="question-stem">The following transactions have passed through the account of a credit customer during January:</div>
+                    <table class="accounting-table" style="max-width: 480px;">
+                        <thead>
+                            <tr><th>Date</th><th>Document</th><th>Amount $</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>3 January</td><td>Invoice S12268</td><td class="num-col">326</td></tr>
+                            <tr><td>11 January</td><td>Invoice S12930</td><td class="num-col">173</td></tr>
+                            <tr><td>14 January</td><td>Credit note CN205</td><td class="num-col">67</td></tr>
+                            <tr><td>21 January</td><td>Invoice S13381</td><td class="num-col">214</td></tr>
+                            <tr><td>28 January</td><td>Bank payment</td><td class="num-col">385</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="question-stem">The customer account had an opening balance of $229 at the beginning of January. What amount would appear on a Statement of Account for this customer if it was produced at the end of January?</div>
+                    <div><span>$ </span><input type="number" id="lo1_q11_ans" class="input-box" placeholder="Whole digits only"></div>
+                    <div class="feedback-hint" id="lo1_q11_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q12_box">
+                    <div class="box-header"><span>Question 12</span><span>4 Marks</span></div>
+                    <div class="question-stem">A sole trader has the following assets and liabilities at the end of the first year of trading:</div>
+                    <table class="accounting-table" style="max-width: 350px;">
+                        <tbody>
+                            <tr><td>Inventory</td><td class="num-col">2250</td></tr>
+                            <tr><td>Bank loan</td><td class="num-col">5000</td></tr>
+                            <tr><td>Machinery</td><td class="num-col">10050</td></tr>
+                            <tr><td>Bank (debit balance)</td><td class="num-col">4210</td></tr>
+                            <tr><td>Trade receivables</td><td class="num-col">4470</td></tr>
+                            <tr><td>Trade payables</td><td class="num-col">1980</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="question-stem">What is the amount of capital invested in the business?</div>
+                    <div><span>$ </span><input type="number" id="lo1_q12_ans" class="input-box"></div>
+                    <div class="feedback-hint" id="lo1_q12_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo1_q13_box">
+                    <div class="box-header"><span>Question 13</span><span>4 Marks (1 mark for each correct entry)</span></div>
+                    <div class="question-stem">Identify the name of the accounting concept being described in each statement below using the drop-down options provided in each answer box.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Statement Description</th><th>Accounting concept</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Low value assets may be expensed to the Statement of Profit or Loss</td><td><select id="lo1_q13_1" class="embedded-select"><option value="">-- Choose Concept --</option><option value="Going concern">Going concern</option><option value="Consistency">Consistency</option><option value="Materiality">Materiality</option><option value="Accruals">Accruals</option></select></td></tr>
+                            <tr><td>A business uses the same method of depreciation year to year</td><td><select id="lo1_q13_2" class="embedded-select"><option value="">-- Choose Concept --</option><option value="Going concern">Going concern</option><option value="Consistency">Consistency</option><option value="Materiality">Materiality</option><option value="Accruals">Accruals</option></select></td></tr>
+                            <tr><td>Non-current assets are held in the financial records at historical cost rather than their resale value</td><td><select id="lo1_q13_3" class="embedded-select"><option value="">-- Choose Concept --</option><option value="Going concern">Going concern</option><option value="Consistency">Consistency</option><option value="Materiality">Materiality</option><option value="Accruals">Accruals</option></select></td></tr>
+                            <tr><td>Year-end adjustments are made for income and expenditure that relates to a future year</td><td><select id="lo1_q13_4" class="embedded-select"><option value="">-- Choose Concept --</option><option value="Going concern">Going concern</option><option value="Consistency">Consistency</option><option value="Materiality">Materiality</option><option value="Accruals">Accruals</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo1_q13_fb"></div>
+                </div>
+            </div>
+
+            <div class="lo-card-block">
+                <h2 class="lo-header">Learning Outcome 2: Payroll Accounting</h2>
+
+                <div class="exam-question-box" id="lo2_q1_box">
+                    <div class="box-header"><span>Question 14</span><span>1 Mark</span></div>
+                    <div class="question-stem">An employee is paid using a time rate and bonus scheme. A standard working week is 38 hours, and the hourly rate is $14.50. The bonus is 10% of the weekly wage if output exceeds 250 units in the week. In one week, an employee produces 255 units. Which one of the following identifies the gross pay for the week?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo2_q1" value="A"> $606.10</label>
+                        <label class="mcq-row"><input type="radio" name="lo2_q1" value="B"> $551.00</label>
+                        <label class="mcq-row"><input type="radio" name="lo2_q1" value="C"> $495.90</label>
+                    </div>
+                    <div class="feedback-hint" id="lo2_q1_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo2_q2_box">
+                    <div class="box-header"><span>Question 15</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following is an example of a voluntary deduction from payroll?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo2_q2" value="A"> Private medical insurance contributions</label>
+                        <label class="mcq-row"><input type="radio" name="lo2_q2" value="B"> Tax</label>
+                        <label class="mcq-row"><input type="radio" name="lo2_q2" value="C"> Statutory pension contributions</label>
+                    </div>
+                    <div class="feedback-hint" id="lo2_q2_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo2_q3_box">
+                    <div class="box-header"><span>Question 16</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following employees is paid using a piece rate method of payment?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo2_q3" value="A"> Zak is paid a fixed amount for every unit produced</label>
+                        <label class="mcq-row"><input type="radio" name="lo2_q3" value="B"> Farai is paid a small fixed monthly salary plus a commission payment for each sale made</label>
+                        <label class="mcq-row"><input type="radio" name="lo2_q3" value="C"> Wilson is paid an amount for each hour worked</label>
+                    </div>
+                    <div class="feedback-hint" id="lo2_q3_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo2_q4_box">
+                    <div class="box-header"><span>Question 17</span><span>4 Marks</span></div>
+                    <div class="question-stem">Bethany is paid an annual salary of $24000. Based on her level of income, the tax payable each month is $180 and she makes monthly pension contributions of $75. What is Bethany's net pay for a month?</div>
+                    <div><span>$ </span><input type="number" id="lo2_q4_ans" class="input-box"></div>
+                    <div class="feedback-hint" id="lo2_q4_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo2_q5_box">
+                    <div class="box-header"><span>Question 18</span><span>4 Marks</span></div>
+                    <div class="question-stem">Evie works the following hours in a week:</div>
+                    <table class="accounting-table" style="max-width:280px;">
+                        <tbody>
+                            <tr><td>Monday</td><td>7 hours</td></tr>
+                            <tr><td>Tuesday</td><td>6 hours</td></tr>
+                            <tr><td>Wednesday</td><td>4 hours</td></tr>
+                            <tr><td>Thursday</td><td>8 hours</td></tr>
+                            <tr><td>Friday</td><td>8 hours</td></tr>
+                            <tr><td>Saturday</td><td>6 hours</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="question-stem">All hours worked Monday to Friday are paid at her normal hourly rate of $12 per hour. Any hours worked on a weekend are paid at an overtime rate of time and a half. What is Evie's gross pay for this week?</div>
+                    <div><span>$ </span><input type="number" id="lo2_q5_ans" class="input-box"></div>
+                    <div class="feedback-hint" id="lo2_q5_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo2_q6_box">
+                    <div class="box-header"><span>Question 19</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Identify whether each of the following statements are true or false using the drop-down options provided below.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Statements</th><th>True or false</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>The gross pay figure paid to employees will be included as an expense for the business in the general (nominal) ledger</td><td><select id="lo2_q6_1" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                            <tr><td>An employee may choose to contribute an additional amount of pension contributions as well as the statutory amount</td><td><select id="lo2_q6_2" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                            <tr><td>The gross pay to be paid via a time rate method is determined by the number of units produced</td><td><select id="lo2_q6_3" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                            <tr><td>Net pay refers to the amount of pay before any deductions.</td><td><select id="lo2_q6_4" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo2_q6_fb"></div>
+                </div>
+            </div>
+
+            <div class="lo-card-block">
+                <h2 class="lo-header">Learning Outcome 3: Control Accounts</h2>
+
+                <div class="exam-question-box" id="lo3_q1_box">
+                    <div class="box-header"><span>Question 20</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following would appear on the debit side of a trade payables control account?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo3_q1" value="A"> Discounts received</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q1" value="B"> Discounts allowed</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q1" value="C"> Purchases on credit</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q1" value="D"> Returns inwards</label>
+                    </div>
+                    <div class="feedback-hint" id="lo3_q1_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo3_q2_box">
+                    <div class="box-header"><span>Question 21</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following would not appear in a trade receivables control account?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo3_q2" value="A"> Cash sales</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q2" value="B"> Irrecoverable debt</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q2" value="C"> Contra with trade payables</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q2" value="D"> Credit sales</label>
+                    </div>
+                    <div class="feedback-hint" id="lo3_q2_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo3_q3_box">
+                    <div class="box-header"><span>Question 22</span><span>2 Marks</span></div>
+                    <div class="question-stem">If a supplier has been overpaid, where would the balance on their account appear?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo3_q3" value="A"> A minority balance in the trade payables control account</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q3" value="B"> A debit in the cash book</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q3" value="C"> A credit in the discounts allowed account</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q3" value="D"> A credit in the trade payables control account</label>
+                    </div>
+                    <div class="feedback-hint" id="lo3_q3_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo3_q4_box">
+                    <div class="box-header"><span>Question 23</span><span>2 Marks</span></div>
+                    <div class="question-stem">A trade payables control account can be used to help check the accuracy of which one of the following?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo3_q4" value="A"> Payables ledger</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q4" value="B"> Receivables ledger</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q4" value="C"> Petty cash account</label>
+                        <label class="mcq-row"><input type="radio" name="lo3_q4" value="D"> Cash book</label>
+                    </div>
+                    <div class="feedback-hint" id="lo3_q4_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo3_q5_box">
+                    <div class="box-header"><span>Question 24</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Identify whether each of the following statements are true or false using the drop-down options provided below.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Statement Context Checklist</th><th>True or false</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>If the trade receivables and trade payables control accounts reconcile with the receivables and payables ledgers, this guarantees that no errors have been made</td><td><select id="lo3_q5_1" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                            <tr><td>Discounts allowed appear on the credit side of the trade receivables control account</td><td><select id="lo3_q5_2" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                            <tr><td>The opening balance on a trade payables control account will generally appear on the credit side of the account</td><td><select id="lo3_q5_3" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                            <tr><td>The total of the sales daybook will appear on the credit side of the trade receivables control account</td><td><select id="lo3_q5_4" class="embedded-select"><option value="">-- Choose --</option><option value="True">True</option><option value="False">False</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo3_q5_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo3_q6_box">
+                    <div class="box-header"><span>Question 25</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Provided below is a list of transactions. Identify whether each transaction would appear in the trade receivables control account, trade payables control account, both control accounts, or if it would not appear in either, by selecting the appropriate option from the drop-down list provided.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Transaction Activity</th><th>Target Ledger Framework Area</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Cash sales</td><td><select id="lo3_q6_1" class="embedded-select"><option value="">-- Choose Location --</option><option value="TRCA">Trade receivables control account</option><option value="TPCA">Trade payables control account</option><option value="Both">Both control accounts</option><option value="Neither">Would not appear in either control account</option></select></td></tr>
+                            <tr><td>Discounts received</td><td><select id="lo3_q6_2" class="embedded-select"><option value="">-- Choose Location --</option><option value="TRCA">Trade receivables control account</option><option value="TPCA">Trade payables control account</option><option value="Both">Both control accounts</option><option value="Neither">Would not appear in either control account</option></select></td></tr>
+                            <tr><td>Irrecoverable debt</td><td><select id="lo3_q6_3" class="embedded-select"><option value="">-- Choose Location --</option><option value="TRCA">Trade receivables control account</option><option value="TPCA">Trade payables control account</option><option value="Both">Both control accounts</option><option value="Neither">Would not appear in either control account</option></select></td></tr>
+                            <tr><td>Returns inwards</td><td><select id="lo3_q6_4" class="embedded-select"><option value="">-- Choose Location --</option><option value="TRCA">Trade receivables control account</option><option value="TPCA">Trade payables control account</option><option value="Both">Both control accounts</option><option value="Neither">Would not appear in either control account</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo3_q6_fb"></div>
+                </div>
+            </div>
+
+            <div class="lo-card-block">
+                <h2 class="lo-header">Learning Outcome 4: Financial Statements & Year-End Adjustments</h2>
+
+                <div class="exam-question-box" id="lo4_q1_box">
+                    <div class="box-header"><span>Question 26</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following balances can be found in the Statement of Financial Position?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo4_q1" value="A"> Capital</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q1" value="B"> Opening inventory</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q1" value="C"> Sales revenue</label>
+                    </div>
+                    <div class="feedback-hint" id="lo4_q1_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q2_box">
+                    <div class="box-header"><span>Question 27</span><span>1 Mark</span></div>
+                    <div class="question-stem">A business needs to write off an irrecoverable debt in the current financial year. Which one of the following shows the impact this will have on the profit for the year?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo4_q2" value="A"> Decrease the profit for the year</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q2" value="B"> Increase the profit for the year</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q2" value="C"> It will not change the profit for the year</label>
+                    </div>
+                    <div class="feedback-hint" id="lo4_q2_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q3_box">
+                    <div class="box-header"><span>Question 28</span><span>1 Mark</span></div>
+                    <div class="question-stem">Which one of the following would not appear in the cost of sales section of a Statement of Profit or Loss?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo4_q3" value="A"> Returns inwards</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q3" value="B"> Carriage inwards</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q3" value="C"> Closing inventory</label>
+                    </div>
+                    <div class="feedback-hint" id="lo4_q3_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q4_box">
+                    <div class="box-header"><span>Question 29</span><span>1 Mark</span></div>
+                    <div class="question-stem">A business has an amount of $5850 recorded in its rent expense account for the year ending 31 December 20X2, however, the annual rent expense is $7800. Which one of the following identifies the adjustment that is required at the year-end?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo4_q4" value="A"> Accrued expense $1950</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q4" value="B"> Prepaid expense $1950</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q4" value="C"> No adjustment is required</label>
+                    </div>
+                    <div class="feedback-hint" id="lo4_q4_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q5_box">
+                    <div class="box-header"><span>Question 30</span><span>1 Mark</span></div>
+                    <div class="question-stem">A business has non-current assets amounting to $24360 at cost in its financial records. The accumulated depreciation at the start of the financial year is $8670. The depreciation charge for the year is $4120. Which one of the following identifies the carrying value of the non-current assets at the year-end?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo4_q5" value="A"> $11570</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q5" value="B"> $19810</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q5" value="C"> $28910</label>
+                    </div>
+                    <div class="feedback-hint" id="lo4_q5_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q6_box">
+                    <div class="box-header"><span>Question 31</span><span>2 Marks</span></div>
+                    <div class="question-stem">Justin runs a sole trader business as an electrician and purchases a van for $12600 to use in his business. The depreciation policy is to use the diminishing balance method at a rate of 30% per year. What would be the depreciation charge in the second year of ownership of the van?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo4_q6" value="A"> $2646</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q6" value="B"> $3780</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q6" value="C"> $6174</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q6" value="D"> $1852</label>
+                    </div>
+                    <div class="feedback-hint" id="lo4_q6_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q7_box">
+                    <div class="box-header"><span>Question 32</span><span>2 Marks</span></div>
+                    <div class="question-stem">A business has produced a draft Statement of Profit or Loss for the year ending 31 December 20X3 which shows a profit for the year of $12560. Further adjustments to be made are identified below:<br>• Accrued expenses totalling $1190<br>• Prepaid income totalling $880<br><br>Which one of the following identifies the profit for the year after the adjustments above have been made?</div>
+                    <div class="mcq-container">
+                        <label class="mcq-row"><input type="radio" name="lo4_q7" value="A"> $10490</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q7" value="B"> $14630</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q7" value="C"> $12870</label>
+                        <label class="mcq-row"><input type="radio" name="lo4_q7" value="D"> $12250</label>
+                    </div>
+                    <div class="feedback-hint" id="lo4_q7_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q8_box">
+                    <div class="box-header"><span>Question 33</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Identify whether each of the following account balances will appear as a debit or credit entry in an initial trial balance using the drop-down options provided below.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Ledger Element Line</th><th>Debit or Credit</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Bank loan</td><td><select id="lo4_q8_1" class="embedded-select"><option value="">-- Select --</option><option value="Debit">Debit</option><option value="Credit">Credit</option></select></td></tr>
+                            <tr><td>Bank charges</td><td><select id="lo4_q8_2" class="embedded-select"><option value="">-- Select --</option><option value="Debit">Debit</option><option value="Credit">Credit</option></select></td></tr>
+                            <tr><td>Returns inwards</td><td><select id="lo4_q8_3" class="embedded-select"><option value="">-- Select --</option><option value="Debit">Debit</option><option value="Credit">Credit</option></select></td></tr>
+                            <tr><td>Accrued expenses</td><td><select id="lo4_q8_4" class="embedded-select"><option value="">-- Select --</option><option value="Debit">Debit</option><option value="Credit">Credit</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo4_q8_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q9_box">
+                    <div class="box-header"><span>Question 34</span><span>4 Marks</span></div>
+                    <div class="question-stem">You have been provided with the following extract from the trial balance of a sole trader as at 31 March 20X3:</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Account Title Component</th><th>Debit ($)</th><th>Credit ($)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Computer equipment</td><td class="num-col">2425</td><td></td></tr>
+                            <tr><td>Bank</td><td class="num-col">1432</td><td></td></tr>
+                            <tr><td>Trade payables</td><td></td><td class="num-col">4398</td></tr>
+                            <tr><td>Accrued expenses</td><td></td><td class="num-col">242</td></tr>
+                            <tr><td>Inventory</td><td class="num-col">1110</td><td></td></tr>
+                            <tr><td>Cash</td><td class="num-col">150</td><td></td></tr>
+                            <tr><td>Trade receivables</td><td class="num-col">5562</td><td></td></tr>
+                            <tr><td>Long term bank loan</td><td></td><td class="num-col">5000</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="question-stem">What amount would appear as the total of the current assets in the Statement of Financial Position at the year end?</div>
+                    <div><span>$ </span><input type="number" id="lo4_q9_ans" class="input-box"></div>
+                    <div class="feedback-hint" id="lo4_q9_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q10_box">
+                    <div class="box-header"><span>Question 35</span><span>4 Marks</span></div>
+                    <div class="question-stem">An extract from the list of balances of TMP Solutions for the year ending 31 December 20X4 is provided below:</div>
+                    <table class="accounting-table" style="max-width:380px;">
+                        <tbody>
+                            <tr><td>Sales</td><td class="num-col">43162</td></tr>
+                            <tr><td>Purchases</td><td class="num-col">18467</td></tr>
+                            <tr><td>Carriage inwards</td><td class="num-col">465</td></tr>
+                            <tr><td>Opening inventory (1 Jan 20X4)</td><td class="num-col">4461</td></tr>
+                            <tr><td>Returns inwards</td><td class="num-col">1360</td></tr>
+                            <tr><td>Closing inventory (31 Dec 20X4)</td><td class="num-col">3897</td></tr>
+                            <tr><td>Returns outwards</td><td class="num-col">660</td></tr>
+                            <tr><td>Carriage outwards</td><td class="num-col">714</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="question-stem">What would be the cost of sales figure which would appear in the Statement of Profit or Loss for the year ending 31 December 20X4?</div>
+                    <div><span>$ </span><input type="number" id="lo4_q10_ans" class="input-box"></div>
+                    <div class="feedback-hint" id="lo4_q10_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q11_box">
+                    <div class="box-header"><span>Question 36</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Classify each of the following items as either a non-current asset, a current asset, a current liability, or a non-current liability using the drop-down options provided below.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Balance Item</th><th>Classification</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Bank loan</td><td><select id="lo4_q11_1" class="embedded-select"><option value="">-- Choose Category --</option><option value="Non-current asset">Non-current asset</option><option value="Current asset">Current asset</option><option value="Current liability">Current liability</option><option value="Non-current liability">Non-current liability</option></select></td></tr>
+                            <tr><td>Amounts owed to trade payables</td><td><select id="lo4_q11_2" class="embedded-select"><option value="">-- Choose Category --</option><option value="Non-current asset">Non-current asset</option><option value="Current asset">Current asset</option><option value="Current liability">Current liability</option><option value="Non-current liability">Non-current liability</option></select></td></tr>
+                            <tr><td>Inventory</td><td><select id="lo4_q11_3" class="embedded-select"><option value="">-- Choose Category --</option><option value="Non-current asset">Non-current asset</option><option value="Current asset">Current asset</option><option value="Current liability">Current liability</option><option value="Non-current liability">Non-current liability</option></select></td></tr>
+                            <tr><td>Plant and machinery</td><td><select id="lo4_q11_4" class="embedded-select"><option value="">-- Choose Category --</option><option value="Non-current asset">Non-current asset</option><option value="Current asset">Current asset</option><option value="Current liability">Current liability</option><option value="Non-current liability">Non-current liability</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo4_q11_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q12_box">
+                    <div class="box-header"><span>Question 37</span><span>4 Marks</span></div>
+                    <div class="question-stem">A business has paid for a subscription to computer software amounting to $756 for 12 months starting 1 August 20X5. The company policy is to charge software subscriptions to the Statement of Profit or Loss. The financial year-end of the business is 31 December 20X5. What amount would be prepaid at the year-end?</div>
+                    <div><span>$ </span><input type="number" id="lo4_q12_ans" class="input-box"></div>
+                    <div class="feedback-hint" id="lo4_q12_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q13_box">
+                    <div class="box-header"><span>Question 38</span><span>4 Marks</span></div>
+                    <div class="question-stem">A business purchased a delivery vehicle for use in the business on 1 June 20X4 costing $16000. The depreciation policy of the business is 20% using the diminishing balance method. The year end of the business is 31 May. What would be the carrying value of the vehicle as at 31 May 20X7?</div>
+                    <div><span>$ </span><input type="number" id="lo4_q13_ans" class="input-box"></div>
+                    <div class="feedback-hint" id="lo4_q13_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q14_box">
+                    <div class="box-header"><span>Question 39</span><span>4 Marks (2 marks for each correct answer)</span></div>
+                    <div class="question-stem">A sole trader has a year-end of 31 December. During the year ending 31 December 20X4, the bank summary showed payments totalling $2660 for rent and $840 for professional subscriptions. Following a review of the expenses for the year, it has been established that at the year-end, rent of $540 is still owing and professional subscriptions amounting to $125 have been prepaid in advance for the following year. What amounts should appear in the Statement of Profit or Loss for the year ending 31 December 20X4 for rent and professional subscriptions?</div>
+                    <table class="accounting-table" style="max-width:320px;">
+                        <thead>
+                            <tr><th>Account</th><th>$</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Rent</td><td><input type="number" id="lo4_q14_1" class="embedded-select" style="text-align: right;"></td></tr>
+                            <tr><td>Professional subscriptions</td><td><input type="number" id="lo4_q14_2" class="embedded-select" style="text-align: right;"></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo4_q14_fb"></div>
+                </div>
+
+                <div class="exam-question-box" id="lo4_q15_box">
+                    <div class="box-header"><span>Question 40</span><span>4 Marks (1 mark for each correct answer)</span></div>
+                    <div class="question-stem">Identify which heading each of the following would appear under in the Statement of Profit or Loss of a sole trader. Please select the heading using the drop-down options in each answer box below.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Item Element</th><th>Heading Destination</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Returns outwards</td><td><select id="lo4_q15_1" class="embedded-select"><option value="">-- Choose Heading --</option><option value="Expenses">Expenses</option><option value="Cost of sales">Cost of sales</option><option value="Other income">Other income</option></select></td></tr>
+                            <tr><td>Vehicle insurance</td><td><select id="lo4_q15_2" class="embedded-select"><option value="">-- Choose Heading --</option><option value="Expenses">Expenses</option><option value="Cost of sales">Cost of sales</option><option value="Other income">Other income</option></select></td></tr>
+                            <tr><td>Bank interest received</td><td><select id="lo4_q15_3" class="embedded-select"><option value="">-- Choose Heading --</option><option value="Expenses">Expenses</option><option value="Cost of sales">Cost of sales</option><option value="Other income">Other income</option></select></td></tr>
+                            <tr><td>Carriage inwards</td><td><select id="lo4_q15_4" class="embedded-select"><option value="">-- Choose Heading --</option><option value="Expenses">Expenses</option><option value="Cost of sales">Cost of sales</option><option value="Other income">Other income</option></select></td></tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="lo4_q15_fb"></div>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" class="submit-btn" onclick="checkAprilPaper()">Submit Complete Assessment</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function checkAprilPaper() {
+            let marks = 0;
+
+            // Clear layout metrics styles
+            document.querySelectorAll('.exam-question-box').forEach(box => box.className = 'exam-question-box');
+            document.querySelectorAll('.feedback-hint').forEach(hint => { hint.innerHTML = ''; hint.className = 'feedback-hint'; });
+
+            function evaluateMCQ(name, correctValue, boxId, fbId, desc) {
+                let choice = document.querySelector(`input[name="${name}"]:checked`)?.value;
+                let box = document.getElementById(boxId);
+                let fb = document.getElementById(fbId);
+                if (choice === correctValue) {
+                    marks += 1;
+                    box.classList.add('card-correct');
+                    fb.innerHTML = "✓ Correct (1/1 Mark)"; fb.className = "feedback-hint correct-text";
+                } else {
+                    box.classList.add('card-incorrect');
+                    fb.innerHTML = "✗ Incorrect. Correct Option: " + desc;
+                }
+            }
+
+            function evaluateWeightMCQ(name, correctValue, boxId, fbId, desc, wt = 2) {
+                let choice = document.querySelector(`input[name="${name}"]:checked`)?.value;
+                let box = document.getElementById(boxId);
+                let fb = document.getElementById(fbId);
+                if (choice === correctValue) {
+                    marks += wt;
+                    box.classList.add('card-correct');
+                    fb.innerHTML = `✓ Correct (${wt}/${wt} Marks)`; fb.className = "feedback-hint correct-text";
+                } else {
+                    box.classList.add('card-incorrect');
+                    fb.innerHTML = `✗ Incorrect. Correct Option: ` + desc;
+                }
+            }
+
+            function evaluateInput(id, correctValue, boxId, fbId, desc, wt = 4) {
+                let val = document.getElementById(id).value.trim();
+                let box = document.getElementById(boxId);
+                let fb = document.getElementById(fbId);
+                if (val === correctValue) {
+                    marks += wt;
+                    box.classList.add('card-correct');
+                    fb.innerHTML = `✓ Correct (${wt}/${wt} Marks)`; fb.className = "feedback-hint correct-text";
+                } else {
+                    box.classList.add('card-incorrect');
+                    fb.innerHTML = `✗ Incorrect. Correct Value: ${desc}`;
+                }
+            }
+
+            // LO1 1-Mark Items
+            evaluateMCQ('lo1_q1', 'A', 'lo1_q1_box', 'lo1_q1_fb', 'To provide a summary of the transactions...');
+            evaluateMCQ('lo1_q2', 'A', 'lo1_q2_box', 'lo1_q2_fb', 'Purchase of delivery vehicle');
+            evaluateMCQ('lo1_q3', 'A', 'lo1_q3_box', 'lo1_q3_fb', '$85.28');
+            evaluateMCQ('lo1_q4', 'A', 'lo1_q4_box', 'lo1_q4_fb', '$30.24');
+
+            // LO1 2-Mark Items
+            evaluateWeightMCQ('lo1_q5', 'A', 'lo1_q5_box', 'lo1_q5_fb', 'Credit $4397');
+            evaluateWeightMCQ('lo1_q6', 'A', 'lo1_q6_box', 'lo1_q6_fb', 'Bank');
+
+            // Q7 Matrix Prepayments
+            let lo1_q7_pts = 0;
+            if (document.getElementById('lo1_q7_1').value === 'Asset') lo1_q7_pts++;
+            if (document.getElementById('lo1_q7_2').value === 'Asset') lo1_q7_pts++;
+            if (document.getElementById('lo1_q7_3').value === 'Liability') lo1_q7_pts++;
+            if (document.getElementById('lo1_q7_4').value === 'Liability') lo1_q7_pts++;
+            marks += lo1_q7_pts;
+            if (lo1_q7_pts === 4) {
+                document.getElementById('lo1_q7_box').classList.add('card-correct');
+                document.getElementById('lo1_q7_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo1_q7_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo1_q7_box').classList.add('card-incorrect');
+                document.getElementById('lo1_q7_fb').innerHTML = "✗ Incorrect. Correct order: Asset, Asset, Liability, Liability";
+            }
+
+            // Q8 Payment Methods Matrix
+            let lo1_q8_pts = 0;
+            if (document.getElementById('lo1_q8_1').value === 'Cheque') lo1_q8_pts++;
+            if (document.getElementById('lo1_q8_2').value === 'Credit card') lo1_q8_pts++;
+            if (document.getElementById('lo1_q8_3').value === 'BACS-bank transfer') lo1_q8_pts++;
+            if (document.getElementById('lo1_q8_4').value === 'Direct debit') lo1_q8_pts++;
+            marks += lo1_q8_pts;
+            if (lo1_q8_pts === 4) {
+                document.getElementById('lo1_q8_box').classList.add('card-correct');
+                document.getElementById('lo1_q8_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo1_q8_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo1_q8_box').classList.add('card-incorrect');
+                document.getElementById('lo1_q8_fb').innerHTML = "✗ Incorrect. Options should be: Cheque, Credit card, BACS-bank transfer, Direct debit";
+            }
+
+            // Q9 Error Categories Dropdowns Matrix
+            let lo1_q9_pts = 0;
+            if (document.getElementById('lo1_q9_1').value === 'Compensating') lo1_q9_pts++;
+            if (document.getElementById('lo1_q9_2').value === 'Reversal of entries') lo1_q9_pts++;
+            if (document.getElementById('lo1_q9_3').value === 'Original entry') lo1_q9_pts++;
+            if (document.getElementById('lo1_q9_4').value === 'Error of commission') lo1_q9_pts++;
+            marks += lo1_q9_pts;
+            if (lo1_q9_pts === 4) {
+                document.getElementById('lo1_q9_box').classList.add('card-correct');
+                document.getElementById('lo1_q9_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo1_q9_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo1_q9_box').classList.add('card-incorrect');
+                document.getElementById('lo1_q9_fb').innerHTML = "✗ Incorrect mapping. Order is: Compensating, Reversal of entries, Original entry, Error of commission";
+            }
+
+            // Q10 Cap/Rev Expenditure dropdown parameters
+            let lo1_q10_pts = 0;
+            if (document.getElementById('lo1_q10_1').value === 'Capital expenditure') lo1_q10_pts++;
+            if (document.getElementById('lo1_q10_2').value === 'Revenue income') lo1_q10_pts++;
+            if (document.getElementById('lo1_q10_3').value === 'Revenue expenditure') lo1_q10_pts++;
+            if (document.getElementById('lo1_q10_4').value === 'Capital income') lo1_q10_pts++;
+            marks += lo1_q10_pts;
+            if (lo1_q10_pts === 4) {
+                document.getElementById('lo1_q10_box').classList.add('card-correct');
+                document.getElementById('lo1_q10_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo1_q10_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo1_q10_box').classList.add('card-incorrect');
+                document.getElementById('lo1_q10_fb').innerHTML = "✗ Incorrect classifications mapping order configuration targets.";
+            }
+
+            evaluateInput('lo1_q11_ans', '490', 'lo1_q11_box', 'lo1_q11_fb', '490');
+            evaluateInput('lo1_q12_ans', '14000', 'lo1_q12_box', 'lo1_q12_fb', '14000');
+
+            // Q13 Concepts
+            let lo1_q13_pts = 0;
+            if (document.getElementById('lo1_q13_1').value === 'Materiality') lo1_q13_pts++;
+            if (document.getElementById('lo1_q13_2').value === 'Consistency') lo1_q13_pts++;
+            if (document.getElementById('lo1_q13_3').value === 'Going concern') lo1_q13_pts++;
+            if (document.getElementById('lo1_q13_4').value === 'Accruals') lo1_q13_pts++;
+            marks += lo1_q13_pts;
+            if (lo1_q13_pts === 4) {
+                document.getElementById('lo1_q13_box').classList.add('card-correct');
+                document.getElementById('lo1_q13_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo1_q13_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo1_q13_box').classList.add('card-incorrect');
+                document.getElementById('lo1_q13_fb').innerHTML = "✗ Incorrect properties configuration. Correct order: Materiality, Consistency, Going concern, Accruals";
+            }
+
+            // LO2 1-Mark Items
+            evaluateMCQ('lo2_q1', 'A', 'lo2_q1_box', 'lo2_q1_fb', '$606.10');
+            evaluateMCQ('lo2_q2', 'A', 'lo2_q2_box', 'lo2_q2_fb', 'Private medical insurance contributions');
+            evaluateMCQ('lo2_q3', 'A', 'lo2_q3_box', 'lo2_q3_fb', 'Zak is paid a fixed amount for every unit produced');
+
+            evaluateInput('lo2_q4_ans', '1745', 'lo2_q4_box', 'lo2_q4_fb', '1745');
+            evaluateInput('lo2_q5_ans', '504', 'lo2_q5_box', 'lo2_q5_fb', '504');
+
+            // LO2 Q19 True/False statements checklist
+            let lo2_q6_pts = 0;
+            if (document.getElementById('lo2_q6_1').value === 'True') lo2_q6_pts++;
+            if (document.getElementById('lo2_q6_2').value === 'True') lo2_q6_pts++;
+            if (document.getElementById('lo2_q6_3').value === 'False') lo2_q6_pts++;
+            if (document.getElementById('lo2_q6_4').value === 'False') lo2_q6_pts++;
+            marks += lo2_q6_pts;
+            if (lo2_q6_pts === 4) {
+                document.getElementById('lo2_q6_box').classList.add('card-correct');
+                document.getElementById('lo2_q6_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo2_q6_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo2_q6_box').classList.add('card-incorrect');
+                document.getElementById('lo2_q6_fb').innerHTML = "✗ Incorrect sequence array checklist target metrics: True, True, False, False";
+            }
+
+            // LO3 1-Mark Items
+            evaluateMCQ('lo3_q1', 'A', 'lo3_q1_box', 'lo3_q1_fb', 'Discounts received');
+            evaluateMCQ('lo3_q2', 'A', 'lo3_q2_box', 'lo3_q2_fb', 'Cash sales');
+
+            // LO3 2-Mark Items
+            evaluateWeightMCQ('lo3_q3', 'A', 'lo3_q3_box', 'lo3_q3_fb', 'A minority balance in the trade payables control account');
+            evaluateWeightMCQ('lo3_q4', 'A', 'lo3_q4_box', 'lo3_q4_fb', 'Payables ledger');
+
+            // LO3 Q24 True/False control checklist parameters
+            let lo3_q5_pts = 0;
+            if (document.getElementById('lo3_q5_1').value === 'False') lo3_q5_pts++;
+            if (document.getElementById('lo3_q5_2').value === 'True') lo3_q5_pts++;
+            if (document.getElementById('lo3_q5_3').value === 'True') lo3_q5_pts++;
+            if (document.getElementById('lo3_q5_4').value === 'False') lo3_q5_pts++;
+            marks += lo3_q5_pts;
+            if (lo3_q5_pts === 4) {
+                document.getElementById('lo3_q5_box').classList.add('card-correct');
+                document.getElementById('lo3_q5_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo3_q5_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo3_q5_box').classList.add('card-incorrect');
+                document.getElementById('lo3_q5_fb').innerHTML = "✗ Incorrect properties criteria tracking: False, True, True, False";
+            }
+
+            // LO3 Q25 Destination control area mapping
+            let lo3_q6_pts = 0;
+            if (document.getElementById('lo3_q6_1').value === 'Neither') lo3_q6_pts++;
+            if (document.getElementById('lo3_q6_2').value === 'TPCA') lo3_q6_pts++;
+            if (document.getElementById('lo3_q6_3').value === 'TRCA') lo3_q6_pts++;
+            if (document.getElementById('lo3_q6_4').value === 'TRCA') lo3_q6_pts++;
+            marks += lo3_q6_pts;
+            if (lo3_q6_pts === 4) {
+                document.getElementById('lo3_q6_box').classList.add('card-correct');
+                document.getElementById('lo3_q6_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo3_q6_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo3_q6_box').classList.add('card-incorrect');
+                document.getElementById('lo3_q6_fb').innerHTML = "✗ Incorrect tracking mapping: Would not appear in either, Trade payables control, Trade receivables control, Trade receivables control";
+            }
+
+            // LO4 1-Mark Items
+            evaluateMCQ('lo4_q1', 'A', 'lo4_q1_box', 'lo4_q1_fb', 'Capital');
+            evaluateMCQ('lo4_q2', 'A', 'lo4_q2_box', 'lo4_q2_fb', 'Decrease the profit for the year');
+            evaluateMCQ('lo4_q3', 'A', 'lo4_q3_box', 'lo4_q3_fb', 'Returns inwards');
+            evaluateMCQ('lo4_q4', 'A', 'lo4_q4_box', 'lo4_q4_fb', 'Accrued expense $1950');
+            evaluateMCQ('lo4_q5', 'A', 'lo4_q5_box', 'lo4_q5_fb', '$11570');
+
+            // LO4 2-Mark Items
+            evaluateWeightMCQ('lo4_q6', 'A', 'lo4_q6_box', 'lo4_q6_fb', '$2646');
+            evaluateWeightMCQ('lo4_q7', 'A', 'lo4_q7_box', 'lo4_q7_fb', '$10490');
+
+            // LO4 Q33 Sides mapping array
+            let lo4_q8_pts = 0;
+            if (document.getElementById('lo4_q8_1').value === 'Credit') lo4_q8_pts++;
+            if (document.getElementById('lo4_q8_2').value === 'Debit') lo4_q8_pts++;
+            if (document.getElementById('lo4_q8_3').value === 'Debit') lo4_q8_pts++;
+            if (document.getElementById('lo4_q8_4').value === 'Credit') lo4_q8_pts++;
+            marks += lo4_q8_pts;
+            if (lo4_q8_pts === 4) {
+                document.getElementById('lo4_q9_box').classList.add('card-correct');
+                document.getElementById('lo4_q8_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo4_q8_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo4_q9_box').classList.add('card-incorrect');
+                document.getElementById('lo4_q8_fb').innerHTML = "✗ Incorrect initial trial balance sides order: Credit, Debit, Debit, Credit";
+            }
+
+            evaluateInput('lo4_q9_ans', '8254', 'lo4_q9_box', 'lo4_q9_fb', '8254');
+            evaluateInput('lo4_q10_ans', '18836', 'lo4_q10_box', 'lo4_q10_fb', '18836');
+
+            // LO4 Q36 Element classifications mapping array
+            let lo4_q11_pts = 0;
+            if (document.getElementById('lo4_q11_1').value === 'Non-current liability') lo4_q11_pts++;
+            if (document.getElementById('lo4_q11_2').value === 'Current liability') lo4_q11_pts++;
+            if (document.getElementById('lo4_q11_3').value === 'Current asset') lo4_q11_pts++;
+            if (document.getElementById('lo4_q11_4').value === 'Non-current asset') lo4_q11_pts++;
+            marks += lo4_q11_pts;
+            if (lo4_q11_pts === 4) {
+                document.getElementById('lo4_q11_box').classList.add('card-correct');
+                document.getElementById('lo4_q11_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo4_q11_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo4_q11_box').classList.add('card-incorrect');
+                document.getElementById('lo4_q11_fb').innerHTML = "✗ Incorrect element configurations assignment structural profiles.";
+            }
+
+            evaluateInput('lo4_q12_ans', '441', 'lo4_q12_box', 'lo4_q12_fb', '441');
+            evaluateInput('lo4_q13_ans', '8192', 'lo4_q13_box', 'lo4_q13_fb', '8192');
+
+            // Winnie Dual-Row Items Calculation Checker
+            let winnieRent = document.getElementById('lo4_q14_1').value.trim();
+            let winnieSub = document.getElementById('lo4_q14_2').value.trim();
+            let winnieScore = 0;
+            if (winnieRent === "3200") winnieScore += 2;
+            if (winnieSub === "715") winnieScore += 2;
+            marks += winnieScore;
+            if (winnieScore === 4) {
+                document.getElementById('lo4_q14_box').classList.add('card-correct');
+                document.getElementById('lo4_q14_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo4_q14_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo4_q14_box').classList.add('card-incorrect');
+                document.getElementById('lo4_q14_fb').innerHTML = "✗ Incorrect. Correct values: Rent $3200, Professional subscriptions $715";
+            }
+
+            // SPL Heading dropdown metrics checker
+            let splHeadingPts = 0;
+            if (document.getElementById('lo4_q15_1').value === 'Cost of sales') splHeadingPts++;
+            if (document.getElementById('lo4_q15_2').value === 'Expenses') splHeadingPts++;
+            if (document.getElementById('lo4_q15_3').value === 'Other income') splHeadingPts++;
+            if (document.getElementById('lo4_q15_4').value === 'Cost of sales') splHeadingPts++;
+            marks += splHeadingPts;
+            if (splHeadingPts === 4) {
+                document.getElementById('lo4_q15_box').classList.add('card-correct');
+                document.getElementById('lo4_q15_fb').innerHTML = "✓ Correct (4/4 Marks)"; document.getElementById('lo4_q15_fb').className = "feedback-hint correct-text";
+            } else {
+                document.getElementById('lo4_q15_box').classList.add('card-incorrect');
+                document.getElementById('lo4_q15_fb').innerHTML = "✗ Incorrect headings mapping targets sequence rules configuration.";
+            }
+
+            // Award Thresholds Metric Calculation Framework Configuration
+            const pct = Math.round((marks / 126) * 100);
+            let finalGrade = "Fail", themeClass = "theme-fail";
+
+            if (pct >= 90) { finalGrade = "Distinction"; themeClass = "theme-pass"; }
+            else if (pct >= 70) { finalGrade = "Merit"; themeClass = "theme-pass"; }
+            else if (pct >= 60) { finalGrade = "Pass"; themeClass = "theme-pass"; }
+
+            let dBox = document.getElementById('dashboard');
+            dBox.style.display = 'block';
+            
+            let badge = document.getElementById('grade-badge');
+            badge.innerText = finalGrade.toUpperCase();
+            badge.className = "grade-display " + themeClass;
+
+            document.getElementById('marks-display').innerText = `${marks} / 126 Total Marks`;
+            document.getElementById('percent-display').innerText = `Percentage: ${pct}%`;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -138,6 +138,16 @@
             box-sizing: border-box;
         }
 
+        .tb-input {
+            width: 100%;
+            padding: 0.3rem;
+            font-size: 0.9rem;
+            border: 1px solid #94a3b8;
+            border-radius: 4px;
+            text-align: right;
+            box-sizing: border-box;
+        }
+
         .embedded-select {
             width: 100%;
             padding: 0.35rem;
@@ -173,7 +183,7 @@
 
     <header>
         <h1>IAB LCCI Level 1 Certificate in Bookkeeping</h1>
-        <p>April 2026 Series (Total Marks: 126)</p>
+        <p>April 2026 Series (Total Marks: 186)</p>
     </header>
 
     <div class="container">
@@ -181,7 +191,7 @@
         <div id="dashboard" class="dashboard">
             <h2>Official Examination Result Notification</h2>
             <div id="grade-badge" class="grade-display">FAIL</div>
-            <h3 id="marks-display" style="margin: 0.25rem 0;">0 / 126 Marks</h3>
+            <h3 id="marks-display" style="margin: 0.25rem 0;">0 / 186 Marks</h3>
             <p id="percent-display" style="margin: 0;">Percentage: 0%</p>
         </div>
 
@@ -582,7 +592,7 @@
                     <div class="question-stem">Provided below is a list of transactions. Identify whether each transaction would appear in the trade receivables control account, trade payables control account, both control accounts, or if it would not appear in either, by selecting the appropriate option from the drop-down list provided.</div>
                     <table class="accounting-table">
                         <thead>
-                            <tr><th>Transaction</th><th>Target Ledger Framework Area</th></tr>
+                            <tr><th>Transaction Activity</th><th>Target Ledger Framework Area</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Cash sales</td><td><select id="lo3_q6_1" class="embedded-select"><option value="">-- Choose Location --</option><option value="TRCA">Trade receivables control account</option><option value="TPCA">Trade payables control account</option><option value="Both">Both control accounts</option><option value="Neither">Would not appear in either control account</option></select></td></tr>
@@ -621,7 +631,7 @@
                 </div>
 
                 <div class="exam-question-box" id="lo4_q3_box">
-                    <div class="box-header"><span>Question 28</span><span>1 Mark</span></div>
+                    <div class="box-header"><span>Question 38</span><span>1 Mark</span></div>
                     <div class="question-stem">Which one of the following would not appear in the cost of sales section of a Statement of Profit or Loss?</div>
                     <div class="mcq-container">
                         <label class="mcq-row"><input type="radio" name="lo4_q3" value="A"> Returns inwards</label>
@@ -682,7 +692,7 @@
                     <div class="question-stem">Identify whether each of the following account balances will appear as a debit or credit entry in an initial trial balance using the drop-down options provided below.</div>
                     <table class="accounting-table">
                         <thead>
-                            <tr><th>Ledger</th><th>Debit or Credit</th></tr>
+                            <tr><th>Ledger Element Line</th><th>Debit or Credit</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Bank loan</td><td><select id="lo4_q8_1" class="embedded-select"><option value="">-- Select --</option><option value="Debit">Debit</option><option value="Credit">Credit</option></select></td></tr>
@@ -699,7 +709,7 @@
                     <div class="question-stem">You have been provided with the following extract from the trial balance of a sole trader as at 31 March 20X3:</div>
                     <table class="accounting-table">
                         <thead>
-                            <tr><th>Account</th><th>Debit ($)</th><th>Credit ($)</th></tr>
+                            <tr><th>Account Title Component</th><th>Debit ($)</th><th>Credit ($)</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Computer equipment</td><td class="num-col">2425</td><td></td></tr>
@@ -742,7 +752,7 @@
                     <div class="question-stem">Classify each of the following items as either a non-current asset, a current asset, a current liability, or a non-current liability using the drop-down options provided below.</div>
                     <table class="accounting-table">
                         <thead>
-                            <tr><th>Item</th><th>Classification</th></tr>
+                            <tr><th>Balance Item</th><th>Classification</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Bank loan</td><td><select id="lo4_q11_1" class="embedded-select"><option value="">-- Choose Category --</option><option value="Non-current asset">Non-current asset</option><option value="Current asset">Current asset</option><option value="Current liability">Current liability</option><option value="Non-current liability">Non-current liability</option></select></td></tr>
@@ -788,7 +798,7 @@
                     <div class="question-stem">Identify which heading each of the following would appear under in the Statement of Profit or Loss of a sole trader. Please select the heading using the drop-down options in each answer box below.</div>
                     <table class="accounting-table">
                         <thead>
-                            <tr><th>Item</th><th>Heading Destination</th></tr>
+                            <tr><th>Item Element</th><th>Heading Destination</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Returns outwards</td><td><select id="lo4_q15_1" class="embedded-select"><option value="">-- Choose Heading --</option><option value="Expenses">Expenses</option><option value="Cost of sales">Cost of sales</option><option value="Other income">Other income</option></select></td></tr>
@@ -798,6 +808,125 @@
                         </tbody>
                     </table>
                     <div class="feedback-hint" id="lo4_q15_fb"></div>
+                </div>
+            </div>
+
+            <!-- SECTION B: CONSOLIDATION TASKS -->
+            <div class="lo-card-block">
+                <h2 class="lo-header">Section B: Comprehensive Consolidation Tasks</h2>
+
+                <!-- Consolidation Task 1 -->
+                <div class="exam-question-box" id="c_task1_box">
+                    <div class="box-header"><span>Consolidation Question 1 (Martina Wood - MW Support)</span><span>20 Marks</span></div>
+                    <div class="question-stem">Prepare a trial balance as at 30th June 20X3 by inserting each balance in the table below in either the debit or credit column and total the trial balance. Enter values as whole numbers only. Leave the unselected column empty or 0.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Account Name</th><th>Account Balance ($)</th><th>DEBIT ($)</th><th>CREDIT ($)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Motor vehicles</td><td>31350</td><td><input type="number" id="t1_r1_dr" class="tb-input"></td><td><input type="number" id="t1_r1_cr" class="tb-input"></td></tr>
+                            <tr><td>Accumulated depreciation - motor vehicles (30.06.20X3)</td><td>20064</td><td><input type="number" id="t1_r2_dr" class="tb-input"></td><td><input type="number" id="t1_r2_cr" class="tb-input"></td></tr>
+                            <tr><td>Office equipment</td><td>3580</td><td><input type="number" id="t1_r3_dr" class="tb-input"></td><td><input type="number" id="t1_r3_cr" class="tb-input"></td></tr>
+                            <tr><td>Accumulated depreciation - office equipment (30.06.20X3)</td><td>1790</td><td><input type="number" id="t1_r4_dr" class="tb-input"></td><td><input type="number" id="t1_r4_cr" class="tb-input"></td></tr>
+                            <tr><td>Purchases</td><td>11215</td><td><input type="number" id="t1_r5_dr" class="tb-input"></td><td><input type="number" id="t1_r5_cr" class="tb-input"></td></tr>
+                            <tr><td>Opening equity (as at 01.07.20X2)</td><td>10000</td><td><input type="number" id="t1_r6_dr" class="tb-input"></td><td><input type="number" id="t1_r6_cr" class="tb-input"></td></tr>
+                            <tr><td>Wages and salaries</td><td>16465</td><td><input type="number" id="t1_r7_dr" class="tb-input"></td><td><input type="number" id="t1_r7_cr" class="tb-input"></td></tr>
+                            <tr><td>Sales revenue</td><td>56873</td><td><input type="number" id="t1_r8_dr" class="tb-input"></td><td><input type="number" id="t1_r8_cr" class="tb-input"></td></tr>
+                            <tr><td>Bank (positive balance)</td><td>1640</td><td><input type="number" id="t1_r9_dr" class="tb-input"></td><td><input type="number" id="t1_r9_cr" class="tb-input"></td></tr>
+                            <tr><td>Drawings</td><td>13140</td><td><input type="number" id="t1_r10_dr" class="tb-input"></td><td><input type="number" id="t1_r10_cr" class="tb-input"></td></tr>
+                            <tr><td>Returns outwards</td><td>562</td><td><input type="number" id="t1_r11_dr" class="tb-input"></td><td><input type="number" id="t1_r11_cr" class="tb-input"></td></tr>
+                            <tr><td>Discounts allowed</td><td>210</td><td><input type="number" id="t1_r12_dr" class="tb-input"></td><td><input type="number" id="t1_r12_cr" class="tb-input"></td></tr>
+                            <tr><td>Trade receivables</td><td>7641</td><td><input type="number" id="t1_r13_dr" class="tb-input"></td><td><input type="number" id="t1_r13_cr" class="tb-input"></td></tr>
+                            <tr><td>Discounts received</td><td>343</td><td><input type="number" id="t1_r14_dr" class="tb-input"></td><td><input type="number" id="t1_r14_cr" class="tb-input"></td></tr>
+                            <tr><td>Depreciation charge - motor vehicles</td><td>5016</td><td><input type="number" id="t1_r15_dr" class="tb-input"></td><td><input type="number" id="t1_r15_cr" class="tb-input"></td></tr>
+                            <tr><td>Depreciation charge - office equipment</td><td>895</td><td><input type="number" id="t1_r16_dr" class="tb-input"></td><td><input type="number" id="t1_r16_cr" class="tb-input"></td></tr>
+                            <tr><td>Trade payables</td><td>4228</td><td><input type="number" id="t1_r17_dr" class="tb-input"></td><td><input type="number" id="t1_r17_cr" class="tb-input"></td></tr>
+                            <tr><td>Bank charges</td><td>413</td><td><input type="number" id="t1_r18_dr" class="tb-input"></td><td><input type="number" id="t1_r18_cr" class="tb-input"></td></tr>
+                            <tr><td>Office expenses</td><td>2295</td><td><input type="number" id="t1_r19_dr" class="tb-input"></td><td><input type="number" id="t1_r19_cr" class="tb-input"></td></tr>
+                            <tr style="background-color: #cbd5e1; font-weight: bold;">
+                                <td>TOTALS</td><td></td>
+                                <td><input type="number" id="t1_tot_dr" class="tb-input" style="font-weight: bold;"></td>
+                                <td><input type="number" id="t1_tot_cr" class="tb-input" style="font-weight: bold;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="c_task1_fb"></div>
+                </div>
+
+                <!-- Consolidation Task 2 -->
+                <div class="exam-question-box" id="c_task2_box">
+                    <div class="box-header"><span>Consolidation Question 2 (Jakob Lee - JL Coaching)</span><span>20 Marks</span></div>
+                    <div class="question-stem">Prepare a trial balance as at 30th September 20X4 by inserting each balance in the table below in either the debit or credit column and total the trial balance. Enter values as whole numbers only.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Account Name</th><th>Account Balance ($)</th><th>DEBIT ($)</th><th>CREDIT ($)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Computer equipment</td><td>8795</td><td><input type="number" id="t2_r1_dr" class="tb-input"></td><td><input type="number" id="t2_r1_cr" class="tb-input"></td></tr>
+                            <tr><td>Accumulated depreciation - computer equipment (30.09.20X4)</td><td>5277</td><td><input type="number" id="t2_r2_dr" class="tb-input"></td><td><input type="number" id="t2_r2_cr" class="tb-input"></td></tr>
+                            <tr><td>Sales revenue</td><td>79784</td><td><input type="number" id="t2_r3_dr" class="tb-input"></td><td><input type="number" id="t2_r3_cr" class="tb-input"></td></tr>
+                            <tr><td>Opening equity (01.10.20X3)</td><td>2000</td><td><input type="number" id="t2_r4_dr" class="tb-input"></td><td><input type="number" id="t2_r4_cr" class="tb-input"></td></tr>
+                            <tr><td>Trade receivables</td><td>10332</td><td><input type="number" id="t2_r5_dr" class="tb-input"></td><td><input type="number" id="t2_r5_cr" class="tb-input"></td></tr>
+                            <tr><td>Bank (overdrawn)</td><td>1115</td><td><input type="number" id="t2_r6_dr" class="tb-input"></td><td><input type="number" id="t2_r6_cr" class="tb-input"></td></tr>
+                            <tr><td>Purchases</td><td>22446</td><td><input type="number" id="t2_r7_dr" class="tb-input"></td><td><input type="number" id="t2_r7_cr" class="tb-input"></td></tr>
+                            <tr><td>Advertising and marketing</td><td>2114</td><td><input type="number" id="t2_r8_dr" class="tb-input"></td><td><input type="number" id="t2_r8_cr" class="tb-input"></td></tr>
+                            <tr><td>Discounts received</td><td>110</td><td><input type="number" id="t2_r9_dr" class="tb-input"></td><td><input type="number" id="t2_r9_cr" class="tb-input"></td></tr>
+                            <tr><td>Printing, postage and stationery</td><td>1424</td><td><input type="number" id="t2_r10_dr" class="tb-input"></td><td><input type="number" id="t2_r10_cr" class="tb-input"></td></tr>
+                            <tr><td>Drawings</td><td>27420</td><td><input type="number" id="t2_r11_dr" class="tb-input"></td><td><input type="number" id="t2_r11_cr" class="tb-input"></td></tr>
+                            <tr><td>Depreciation charge - computer equipment</td><td>1759</td><td><input type="number" id="t2_r12_dr" class="tb-input"></td><td><input type="number" id="t2_r12_cr" class="tb-input"></td></tr>
+                            <tr><td>Returns outwards</td><td>142</td><td><input type="number" id="t2_r13_dr" class="tb-input"></td><td><input type="number" id="t2_r13_cr" class="tb-input"></td></tr>
+                            <tr><td>Trade payables</td><td>1237</td><td><input type="number" id="t2_r14_dr" class="tb-input"></td><td><input type="number" id="t2_r14_cr" class="tb-input"></td></tr>
+                            <tr><td>Bank charges</td><td>897</td><td><input type="number" id="t2_r15_dr" class="tb-input"></td><td><input type="number" id="t2_r15_cr" class="tb-input"></td></tr>
+                            <tr><td>Wages and salaries</td><td>18778</td><td><input type="number" id="t2_r16_dr" class="tb-input"></td><td><input type="number" id="t2_r16_cr" class="tb-input"></td></tr>
+                            <tr><td>Loan (repayable 20X9)</td><td>5000</td><td><input type="number" id="t2_r17_dr" class="tb-input"></td><td><input type="number" id="t2_r17_cr" class="tb-input"></td></tr>
+                            <tr><td>Discounts allowed</td><td>450</td><td><input type="number" id="t2_r18_dr" class="tb-input"></td><td><input type="number" id="t2_r18_cr" class="tb-input"></td></tr>
+                            <tr><td>Loan interest paid</td><td>250</td><td><input type="number" id="t2_r19_dr" class="tb-input"></td><td><input type="number" id="t2_r19_cr" class="tb-input"></td></tr>
+                            <tr style="background-color: #cbd5e1; font-weight: bold;">
+                                <td>TOTALS</td><td></td>
+                                <td><input type="number" id="t2_tot_dr" class="tb-input" style="font-weight: bold;"></td>
+                                <td><input type="number" id="t2_tot_cr" class="tb-input" style="font-weight: bold;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="c_task2_fb"></div>
+                </div>
+
+                <!-- Consolidation Task 3 -->
+                <div class="exam-question-box" id="c_task3_box">
+                    <div class="box-header"><span>Consolidation Question 3 (Henry Jenkinson - HJ Business Services)</span><span>20 Marks</span></div>
+                    <div class="question-stem">Prepare a trial balance as at 31st December 20X3 by inserting each balance in the table below in either the debit or credit column and total the trial balance. Enter values as whole numbers only.</div>
+                    <table class="accounting-table">
+                        <thead>
+                            <tr><th>Account Name</th><th>Account Balance ($)</th><th>DEBIT ($)</th><th>CREDIT ($)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Opening equity (as at 01.01.20X3)</td><td>2500</td><td><input type="number" id="t3_r1_dr" class="tb-input"></td><td><input type="number" id="t3_r1_cr" class="tb-input"></td></tr>
+                            <tr><td>Depreciation charge - office equipment</td><td>1120</td><td><input type="number" id="t3_r2_dr" class="tb-input"></td><td><input type="number" id="t3_r2_cr" class="tb-input"></td></tr>
+                            <tr><td>Bank (positive balance)</td><td>2261</td><td><input type="number" id="t3_r3_dr" class="tb-input"></td><td><input type="number" id="t3_r3_cr" class="tb-input"></td></tr>
+                            <tr><td>Sales revenue</td><td>33250</td><td><input type="number" id="t3_r4_dr" class="tb-input"></td><td><input type="number" id="t3_r4_cr" class="tb-input"></td></tr>
+                            <tr><td>Bank charges</td><td>94</td><td><input type="number" id="t3_r5_dr" class="tb-input"></td><td><input type="number" id="t3_r5_cr" class="tb-input"></td></tr>
+                            <tr><td>Rent expense</td><td>1680</td><td><input type="number" id="t3_r6_dr" class="tb-input"></td><td><input type="number" id="t3_r6_cr" class="tb-input"></td></tr>
+                            <tr><td>Drawings</td><td>18500</td><td><input type="number" id="t3_r7_dr" class="tb-input"></td><td><input type="number" id="t3_r7_cr" class="tb-input"></td></tr>
+                            <tr><td>Travel expenses</td><td>426</td><td><input type="number" id="t3_r8_dr" class="tb-input"></td><td><input type="number" id="t3_r8_cr" class="tb-input"></td></tr>
+                            <tr><td>Training</td><td>1135</td><td><input type="number" id="t3_r9_dr" class="tb-input"></td><td><input type="number" id="t3_r9_cr" class="tb-input"></td></tr>
+                            <tr><td>Accumulated depreciation - office equipment (31.12.20X3)</td><td>3360</td><td><input type="number" id="t3_r10_dr" class="tb-input"></td><td><input type="number" id="t3_r10_cr" class="tb-input"></td></tr>
+                            <tr><td>Trade receivables</td><td>3632</td><td><input type="number" id="t3_r11_dr" class="tb-input"></td><td><input type="number" id="t3_r11_cr" class="tb-input"></td></tr>
+                            <tr><td>Discounts allowed</td><td>105</td><td><input type="number" id="t3_r12_dr" class="tb-input"></td><td><input type="number" id="t3_r12_cr" class="tb-input"></td></tr>
+                            <tr><td>Professional fees</td><td>895</td><td><input type="number" id="t3_r13_dr" class="tb-input"></td><td><input type="number" id="t3_r13_cr" class="tb-input"></td></tr>
+                            <tr><td>Office equipment</td><td>5600</td><td><input type="number" id="t3_r14_dr" class="tb-input"></td><td><input type="number" id="t3_r14_cr" class="tb-input"></td></tr>
+                            <tr><td>Trade payables</td><td>468</td><td><input type="number" id="t3_r15_dr" class="tb-input"></td><td><input type="number" id="t3_r15_cr" class="tb-input"></td></tr>
+                            <tr><td>General office expenses</td><td>1867</td><td><input type="number" id="t3_r16_dr" class="tb-input"></td><td><input type="number" id="t3_r16_cr" class="tb-input"></td></tr>
+                            <tr><td>Bank interest received</td><td>22</td><td><input type="number" id="t3_r17_dr" class="tb-input"></td><td><input type="number" id="t3_r17_cr" class="tb-input"></td></tr>
+                            <tr><td>Light and heat</td><td>2135</td><td><input type="number" id="t3_r18_dr" class="tb-input"></td><td><input type="number" id="t3_r18_cr" class="tb-input"></td></tr>
+                            <tr><td>Irrecoverable debt</td><td>150</td><td><input type="number" id="t3_r19_dr" class="tb-input"></td><td><input type="number" id="t3_r19_cr" class="tb-input"></td></tr>
+                            <tr style="background-color: #cbd5e1; font-weight: bold;">
+                                <td>TOTALS</td><td></td>
+                                <td><input type="number" id="t3_tot_dr" class="tb-input" style="font-weight: bold;"></td>
+                                <td><input type="number" id="t3_tot_cr" class="tb-input" style="font-weight: bold;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="feedback-hint" id="c_task3_fb"></div>
                 </div>
             </div>
 
@@ -1053,7 +1182,7 @@
             evaluateInput('lo4_q12_ans', '441', 'lo4_q12_box', 'lo4_q12_fb', '441');
             evaluateInput('lo4_q13_ans', '8192', 'lo4_q13_box', 'lo4_q13_fb', '8192');
 
-            // Winnie Dual-Row Items Calculation Checker
+            // Row Items Calculation Checker
             let winnieRent = document.getElementById('lo4_q14_1').value.trim();
             let winnieSub = document.getElementById('lo4_q14_2').value.trim();
             let winnieScore = 0;
@@ -1083,8 +1212,117 @@
                 document.getElementById('lo4_q15_fb').innerHTML = "✗ Incorrect headings mapping targets sequence rules configuration.";
             }
 
-            // Award Thresholds Metric Calculation Framework Configuration
-            const pct = Math.round((marks / 126) * 100);
+            // EVALUATE CONSOLIDATION TASK 1 (20 Marks)
+            let t1_score = 0;
+            function checkRow(drId, crId, side, val) {
+                let dr = document.getElementById(drId).value.trim();
+                let cr = document.getElementById(crId).value.trim();
+                if (side === 'DR' && dr === String(val) && (cr === '' || cr === '0')) return 1;
+                if (side === 'CR' && cr === String(val) && (dr === '' || dr === '0')) return 1;
+                return 0;
+            }
+            t1_score += checkRow('t1_r1_dr', 't1_r1_cr', 'DR', 31350);
+            t1_score += checkRow('t1_r2_dr', 't1_r2_cr', 'CR', 20064);
+            t1_score += checkRow('t1_r3_dr', 't1_r3_cr', 'DR', 3580);
+            t1_score += checkRow('t1_r4_dr', 't1_r4_cr', 'CR', 1790);
+            t1_score += checkRow('t1_r5_dr', 't1_r5_cr', 'DR', 11215);
+            t1_score += checkRow('t1_r6_dr', 't1_r6_cr', 'CR', 10000);
+            t1_score += checkRow('t1_r7_dr', 't1_r7_cr', 'DR', 16465);
+            t1_score += checkRow('t1_r8_dr', 't1_r8_cr', 'CR', 56873);
+            t1_score += checkRow('t1_r9_dr', 't1_r9_cr', 'DR', 1640);
+            t1_score += checkRow('t1_r10_dr', 't1_r10_cr', 'DR', 13140);
+            t1_score += checkRow('t1_r11_dr', 't1_r11_cr', 'CR', 562);
+            t1_score += checkRow('t1_r12_dr', 't1_r12_cr', 'DR', 210);
+            t1_score += checkRow('t1_r13_dr', 't1_r13_cr', 'DR', 7641);
+            t1_score += checkRow('t1_r14_dr', 't1_r14_cr', 'CR', 343);
+            t1_score += checkRow('t1_r15_dr', 't1_r15_cr', 'DR', 5016);
+            t1_score += checkRow('t1_r16_dr', 't1_r16_cr', 'DR', 895);
+            t1_score += checkRow('t1_r17_dr', 't1_r17_cr', 'CR', 4228);
+            t1_score += checkRow('t1_r18_dr', 't1_r18_cr', 'DR', 413);
+            t1_score += checkRow('t1_r19_dr', 't1_r19_cr', 'DR', 2295);
+            if (document.getElementById('t1_tot_dr').value.trim() === '93860') t1_score += 0.5;
+            if (document.getElementById('t1_tot_cr').value.trim() === '93860') t1_score += 0.5;
+            marks += t1_score;
+            let t1_box = document.getElementById('c_task1_box');
+            let t1_fb = document.getElementById('c_task1_fb');
+            if (t1_score === 20) {
+                t1_box.classList.add('card-correct');
+                t1_fb.innerHTML = "✓ Correct (20/20 Marks)"; t1_fb.className = "feedback-hint correct-text";
+            } else {
+                t1_box.classList.add('card-incorrect');
+                t1_fb.innerHTML = `✗ Incomplete or incorrect cells detected. Score: ${t1_score}/20 Marks. Balanced totals must equal 93860.`;
+            }
+
+            // EVALUATE CONSOLIDATION TASK 2 (20 Marks)
+            let t2_score = 0;
+            t2_score += checkRow('t2_r1_dr', 't2_r1_cr', 'DR', 8795);
+            t2_score += checkRow('t2_r2_dr', 't2_r2_cr', 'CR', 5277);
+            t2_score += checkRow('t2_r3_dr', 't2_r3_cr', 'CR', 79784);
+            t2_score += checkRow('t2_r4_dr', 't2_r4_cr', 'CR', 2000);
+            t2_score += checkRow('t2_r5_dr', 't2_r5_cr', 'DR', 10332);
+            t2_score += checkRow('t2_r6_dr', 't2_r6_cr', 'CR', 1115);
+            t2_score += checkRow('t2_r7_dr', 't2_r7_cr', 'DR', 22446);
+            t2_score += checkRow('t2_r8_dr', 't2_r8_cr', 'DR', 2114);
+            t2_score += checkRow('t2_r9_dr', 't2_r9_cr', 'CR', 110);
+            t2_score += checkRow('t2_r10_dr', 't2_r10_cr', 'DR', 1424);
+            t2_score += checkRow('t2_r11_dr', 't2_r11_cr', 'DR', 27420);
+            t2_score += checkRow('t2_r12_dr', 't2_r12_cr', 'DR', 1759);
+            t2_score += checkRow('t2_r13_dr', 't2_r13_cr', 'CR', 142);
+            t2_score += checkRow('t2_r14_dr', 't2_r14_cr', 'CR', 1237);
+            t2_score += checkRow('t2_r15_dr', 't2_r15_cr', 'DR', 897);
+            t2_score += checkRow('t2_r16_dr', 't2_r16_cr', 'DR', 18778);
+            t2_score += checkRow('t2_r17_dr', 't2_r17_cr', 'CR', 5000);
+            t2_score += checkRow('t2_r18_dr', 't2_r18_cr', 'DR', 450);
+            t2_score += checkRow('t2_r19_dr', 't2_r19_cr', 'DR', 250);
+            if (document.getElementById('t2_tot_dr').value.trim() === '94665') t2_score += 0.5;
+            if (document.getElementById('t2_tot_cr').value.trim() === '94665') t2_score += 0.5;
+            marks += t2_score;
+            let t2_box = document.getElementById('c_task2_box');
+            let t2_fb = document.getElementById('c_task2_fb');
+            if (t2_score === 20) {
+                t2_box.classList.add('card-correct');
+                t2_fb.innerHTML = "✓ Correct (20/20 Marks)"; t2_fb.className = "feedback-hint correct-text";
+            } else {
+                t2_box.classList.add('card-incorrect');
+                t2_fb.innerHTML = `✗ Incomplete or incorrect cells detected. Score: ${t2_score}/20 Marks. Balanced totals must equal 94665.`;
+            }
+
+            // EVALUATE CONSOLIDATION TASK 3 (20 Marks)
+            let t3_score = 0;
+            t3_score += checkRow('t3_r1_dr', 't3_r1_cr', 'CR', 2500);
+            t3_score += checkRow('t3_r2_dr', 't3_r2_cr', 'DR', 1120);
+            t3_score += checkRow('t3_r3_dr', 't3_r3_cr', 'DR', 2261);
+            t3_score += checkRow('t3_r4_dr', 't3_r4_cr', 'CR', 33250);
+            t3_score += checkRow('t3_r5_dr', 't3_r5_cr', 'DR', 94);
+            t3_score += checkRow('t3_r6_dr', 't3_r6_cr', 'DR', 1680);
+            t3_score += checkRow('t3_r7_dr', 't3_r7_cr', 'DR', 18500);
+            t3_score += checkRow('t3_r8_dr', 't3_r8_cr', 'DR', 426);
+            t3_score += checkRow('t3_r9_dr', 't3_r9_cr', 'DR', 1135);
+            t3_score += checkRow('t3_r10_dr', 't3_r10_cr', 'CR', 3360);
+            t3_score += checkRow('t3_r11_dr', 't3_r11_cr', 'DR', 3632);
+            t3_score += checkRow('t3_r12_dr', 't3_r12_cr', 'DR', 105);
+            t3_score += checkRow('t3_r13_dr', 't3_r13_cr', 'DR', 895);
+            t3_score += checkRow('t3_r14_dr', 't3_r14_cr', 'DR', 5600);
+            t3_score += checkRow('t3_r15_dr', 't3_r15_cr', 'CR', 468);
+            t3_score += checkRow('t3_r16_dr', 't3_r16_cr', 'DR', 1867);
+            t3_score += checkRow('t3_r17_dr', 't3_r17_cr', 'CR', 22);
+            t3_score += checkRow('t3_r18_dr', 't3_r18_cr', 'DR', 2135);
+            t3_score += checkRow('t3_r19_dr', 't3_r19_cr', 'DR', 150);
+            if (document.getElementById('t3_tot_dr').value.trim() === '39600') t3_score += 0.5;
+            if (document.getElementById('t3_tot_cr').value.trim() === '39600') t3_score += 0.5;
+            marks += t3_score;
+            let t3_box = document.getElementById('c_task3_box');
+            let t3_fb = document.getElementById('c_task3_fb');
+            if (t3_score === 20) {
+                t3_box.classList.add('card-correct');
+                t3_fb.innerHTML = "✓ Correct (20/20 Marks)"; t3_fb.className = "feedback-hint correct-text";
+            } else {
+                t3_box.classList.add('card-incorrect');
+                t3_fb.innerHTML = `✗ Incomplete or incorrect cells detected. Score: ${t3_score}/20 Marks. Balanced totals must equal 39600.`;
+            }
+
+            // Global Calculation Metrics
+            const pct = Math.round((marks / 186) * 100);
             let finalGrade = "Fail", themeClass = "theme-fail";
 
             if (pct >= 90) { finalGrade = "Distinction"; themeClass = "theme-pass"; }
@@ -1098,7 +1336,7 @@
             badge.innerText = finalGrade.toUpperCase();
             badge.className = "grade-display " + themeClass;
 
-            document.getElementById('marks-display').innerText = `${marks} / 126 Total Marks`;
+            document.getElementById('marks-display').innerText = `${marks} / 186 Total Marks`;
             document.getElementById('percent-display').innerText = `Percentage: ${pct}%`;
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
